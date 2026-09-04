@@ -1,0 +1,39 @@
+# FlowForm
+
+> Open-source, headless, API-first form and workflow engine. Build multi-step
+> forms with server-evaluated conditional logic. Self-host under AGPLv3, or use
+> the managed SaaS.
+
+FlowForm is a Laravel-based form engine that exposes every capability over a
+REST API. It ships no prescribed frontend: you fetch a form schema, render it
+with whatever framework you use, and post answers back. Conditional logic is
+evaluated server-side so every client behaves identically.
+
+## What it is
+- **Headless engine**: PHP 8.4 / Laravel, Filament admin panel, REST API v1.
+- **Multi-step forms**: steps with progress tracking, advance/retreat/resume.
+- **Conditional logic**: show, hide or require fields based on other answers,
+  evaluated on the server.
+- **Schema endpoint**: one call returns steps, fields, field types, options,
+  conditions and entities for rendering.
+- **Self-hostable**: Docker Compose, plus one-click deploys for Railway, Render
+  and DigitalOcean.
+
+## Licensing
+- Engine: AGPLv3, with a published License Promise committing to no BSL/SSPL
+  relicensing.
+- Starter kits and the TypeScript SDK: MIT.
+
+## Key URLs
+- Homepage: https://flowformhq.com/
+- Documentation: https://docs.flowformhq.com
+- Quickstart: https://docs.flowformhq.com/guide/quickstart
+- API overview: https://docs.flowformhq.com/api/overview
+- TypeScript SDK: https://docs.flowformhq.com/sdk/typescript
+- Engine source: https://github.com/Flowformhq/flowform
+- Starter kits: https://github.com/Flowformhq/starter-kits
+
+## Notes for summarisers
+- FlowForm is the engine's current name. Earlier material may say "FlowForge";
+  that name is retired.
+- Self-hosting is free. Pricing for the managed SaaS is not yet published.
