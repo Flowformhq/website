@@ -3,12 +3,321 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>FlowForm — The Open-Source Forms Platform</title>
   <meta name="description" content="Headless, API-first form and workflow engine. Open-source, self-hostable, with a managed SaaS option." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="canonical" href="https://flowformhq.com/" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FlowForm" />
+  <meta property="og:url" content="https://flowformhq.com/" />
+  <meta property="og:title" content="FlowForm — The Open-Source Forms Platform" />
+  <meta property="og:description" content="Headless, API-first form and workflow engine for developers. Build multi-step forms with conditional logic. Self-host or use our managed SaaS." />
+  <meta property="og:image" content="https://flowformhq.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="FlowForm — the open-source forms platform" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FlowForm — The Open-Source Forms Platform" />
+  <meta name="twitter:description" content="Headless, API-first form and workflow engine for developers. Build multi-step forms with conditional logic. Self-host or use our managed SaaS." />
+  <meta name="twitter:image" content="https://flowformhq.com/og.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://flowformhq.com/#org",
+        "name": "FlowForm",
+        "url": "https://flowformhq.com/",
+        "logo": "https://flowformhq.com/og.png",
+        "sameAs": ["https://github.com/Flowformhq"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "FlowForm",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Linux, macOS, Docker",
+        "description": "Headless, API-first form and workflow engine. Build multi-step forms with server-evaluated conditional logic. Self-hostable under AGPLv3.",
+        "url": "https://flowformhq.com/",
+        "publisher": { "@id": "https://flowformhq.com/#org" },
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Self-hosted, AGPLv3"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body class="bg-white text-gray-900 antialiased">
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+  <nav class="border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-50" aria-label="Main">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        <img src="/favicon.svg" alt="" width="24" height="24" class="h-6 w-6" />
+        <span class="text-xl font-bold text-indigo-600">FlowForm</span>
+      </a>
+
+      <div class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="https://docs.flowformhq.com" class="text-gray-600 hover:text-gray-900 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Docs</a>
+        <a href="#features" class="text-gray-600 hover:text-gray-900 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Features</a>
+        <a href="#compare" class="text-gray-600 hover:text-gray-900 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Compare</a>
+        <a href="https://github.com/Flowformhq/flowform" class="inline-flex items-center gap-1.5 rounded-md border border-gray-300 px-3 py-1.5 text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav-mobile"
+        class="sm:hidden inline-flex items-center justify-center rounded-md border border-gray-300 p-2 text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <div id="nav-mobile" hidden class="sm:hidden border-t border-gray-100 px-6 pb-4 pt-2">
+      <a href="https://docs.flowformhq.com" class="block py-2 text-gray-700 hover:text-gray-900">Docs</a>
+      <a href="#features" class="block py-2 text-gray-700 hover:text-gray-900">Features</a>
+      <a href="#compare" class="block py-2 text-gray-700 hover:text-gray-900">Compare</a>
+      <a href="https://github.com/Flowformhq/flowform" class="mt-2 inline-flex items-center gap-1.5 rounded-md border border-gray-300 px-3 py-1.5 text-gray-700 hover:bg-gray-50">
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <main id="main">
+  <section class="max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
+    <p class="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-sm text-indigo-700 mb-6">
+      Open source &middot; AGPLv3 + Commercial
+    </p>
+    <h1 class="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
+      The open-source<br/>forms platform
+    </h1>
+    <p class="mt-6 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      Headless, API-first form and workflow engine for developers.
+      Build multi-step forms with conditional logic. Self-host or use our managed SaaS.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://docs.flowformhq.com/guide/quickstart" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-6 py-3 text-base font-medium text-white hover:bg-indigo-700 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Get started
+      </a>
+      <a href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg border border-gray-300 px-6 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Read the docs
+      </a>
+    </div>
+    <p class="mt-4 text-sm text-gray-500">Self-host for free &middot; No credit card &middot; Full API access</p>
+  </section>
+
+  <section class="bg-gray-50 py-20" aria-label="Quickstart">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="relative rounded-xl bg-gray-900 p-8 sm:p-12 shadow-2xl">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="h-3 w-3 rounded-full bg-red-400" aria-hidden="true"></span>
+          <span class="h-3 w-3 rounded-full bg-yellow-400" aria-hidden="true"></span>
+          <span class="h-3 w-3 rounded-full bg-green-400" aria-hidden="true"></span>
+          <span class="ml-4 text-sm text-gray-400 font-mono">terminal</span>
+          <button type="button" id="copy-quickstart" data-target="quickstart-code"
+            class="ml-auto rounded-md border border-gray-700 px-2.5 py-1 text-xs text-gray-300 hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
+            Copy
+          </button>
+        </div>
+        <pre class="text-sm sm:text-base text-green-400 font-mono leading-relaxed overflow-x-auto"><code id="quickstart-code">git clone https://github.com/Flowformhq/flowform.git
+cd flowform &amp;&amp; composer install
+cp .env.example .env &amp;&amp; php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+
+<span class="text-gray-400"># &rarr; Admin panel: http://localhost:8000/admin</span>
+
+<span class="text-gray-400"># Fetch a form schema</span>
+curl http://localhost:8000/api/v1/forms/{uuid}/schema
+
+<span class="text-gray-400"># Submit a response</span>
+curl -X POST http://localhost:8000/api/v1/submissions \
+  -H "Authorization: Bearer TOKEN" \
+  -d '{"form_uuid":"..."}'</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Built for developers, by developers</h2>
+      <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Every feature is accessible via a clean REST API. No lock-in, no hidden limitations.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#128203;</p>
+          <h3 class="font-semibold text-lg mb-2">Multi-step forms</h3>
+          <p class="text-gray-600 text-sm">Organize fields into steps with progress tracking. Advance, retreat, and resume.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#128256;</p>
+          <h3 class="font-semibold text-lg mb-2">Conditional logic</h3>
+          <p class="text-gray-600 text-sm">Show, hide, or require fields based on other answers. Server-evaluated for consistency.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#128268;</p>
+          <h3 class="font-semibold text-lg mb-2">REST API + OpenAPI</h3>
+          <p class="text-gray-600 text-sm">Full API with auto-generated docs. Schema endpoint returns everything in one call.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#127912;</p>
+          <h3 class="font-semibold text-lg mb-2">Headless by design</h3>
+          <p class="text-gray-600 text-sm">No frontend lock-in. Use React, Vue, Livewire, or build your own with the TypeScript SDK.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#128272;</p>
+          <h3 class="font-semibold text-lg mb-2">Self-host with escape hatch</h3>
+          <p class="text-gray-600 text-sm">AGPLv3 licensed forever. License Promise guarantees no BSL/SSPL pivot. Or use the managed SaaS.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6">
+          <p class="text-2xl mb-3" aria-hidden="true">&#128051;</p>
+          <h3 class="font-semibold text-lg mb-2">Docker-ready</h3>
+          <p class="text-gray-600 text-sm">One-command deploy with Docker Compose. One-click buttons for Railway, Render, and DigitalOcean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" class="bg-gray-50 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Why FlowForm?</h2>
+      <p class="text-center text-gray-600 mb-12">The open-source alternative to Typeform, Tally, and Fillout.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <caption class="sr-only">Feature comparison between FlowForm, Typeform and Tally</caption>
+          <thead>
+            <tr class="border-b border-gray-200">
+              <th scope="col" class="text-left py-3 pr-4 font-semibold text-gray-900">Feature</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-indigo-700">FlowForm</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-gray-600">Typeform</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-gray-600">Tally</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Open source</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Self-hostable</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Public REST API</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-gray-600">Yes</td>
+              <td class="py-3 px-4 text-center text-gray-600">Yes</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Conditional logic</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Multi-step forms</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Headless / framework agnostic</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+              <td class="py-3 px-4 text-center text-gray-600">No</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Full data residency control</th>
+              <td class="py-3 px-4 text-center text-green-700">Yes (self-host)</td>
+              <td class="py-3 px-4 text-center text-gray-600">Plan-dependent</td>
+              <td class="py-3 px-4 text-center text-gray-600">Plan-dependent</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left py-3 pr-4 font-normal text-gray-700">Starting price</th>
+              <td class="py-3 px-4 text-center font-medium text-indigo-700">$0 (self-host)</td>
+              <td class="py-3 px-4 text-center text-gray-600">Paid plans</td>
+              <td class="py-3 px-4 text-center text-gray-600">Free tier + paid</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 text-xs text-gray-600">
+        Comparison reflects each vendor's publicly documented features. Competitor plans and pricing change &mdash; check
+        <a class="underline hover:text-gray-900" href="https://www.typeform.com/pricing/">Typeform</a> and
+        <a class="underline hover:text-gray-900" href="https://tally.so/pricing">Tally</a> for current details.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20" aria-labelledby="kits-heading">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 id="kits-heading" class="text-3xl font-bold text-center mb-4">Starter kits for every framework</h2>
+      <p class="text-center text-gray-600 mb-12">Clone and customize. All kits share the same rendering contract.</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="https://github.com/Flowformhq/starter-kits/tree/main/react" class="block rounded-lg border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <h3 class="font-semibold text-lg mb-1">React + Vite</h3>
+          <p class="text-sm text-gray-600">TypeScript SDK, useFlowForm hook, Tailwind CSS</p>
+        </a>
+        <a href="https://github.com/Flowformhq/starter-kits/tree/main/vue" class="block rounded-lg border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <h3 class="font-semibold text-lg mb-1">Vue 3 + Vite</h3>
+          <p class="text-sm text-gray-600">Composition API, useFlowForm composable, Tailwind CSS</p>
+        </a>
+        <a href="https://github.com/Flowformhq/starter-kits/tree/main/livewire" class="block rounded-lg border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <h3 class="font-semibold text-lg mb-1">Laravel Livewire</h3>
+          <p class="text-sm text-gray-600">Composer package, Blade views, no JS build step</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-indigo-600 py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to get started?</h2>
+      <p class="text-indigo-100 mb-8">Self-host for free. Production-ready in minutes.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://github.com/Flowformhq/flowform" class="w-full sm:w-auto rounded-lg bg-white px-6 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          View on GitHub
+        </a>
+        <a href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg border border-white/40 px-6 py-3 text-base font-medium text-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          Read the docs
+        </a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="border-t border-gray-100 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+      <p class="flex items-center gap-2">
+        <span class="font-semibold text-indigo-700">FlowForm</span>
+        <span>&middot; &copy; 2026 FlowFormHQ</span>
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="https://docs.flowformhq.com" class="hover:text-gray-900">Docs</a>
+        <a href="https://github.com/Flowformhq/flowform" class="hover:text-gray-900">GitHub</a>
+        <a href="https://github.com/Flowformhq/flowform/issues" class="hover:text-gray-900">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
