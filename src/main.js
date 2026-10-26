@@ -1,5 +1,14 @@
 import './style.css'
 
+// Theme toggle (Dark / Light)
+const themeToggles = document.querySelectorAll('.theme-toggle-btn')
+themeToggles.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark')
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  })
+})
+
 // Mobile navigation toggle
 const navToggle = document.querySelector('#nav-toggle')
 const navMobile = document.querySelector('#nav-mobile')
