@@ -1,0 +1,151 @@
+---
+import '../../style.css';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.publishDate,
+  "dateModified": post.data.publishDate,
+  "author": {
+    "@type": "Organization",
+    "name": post.data.author,
+    "url": "https://flowformhq.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "FlowFormHQ",
+    "url": "https://flowformhq.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://flowformhq.com/og.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://flowformhq.com/blog/${post.id}`
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{post.data.title} — FlowForm Blog</title>
+  <meta name="description" content={post.data.description} />
+  <link rel="canonical" href={post.data.canonicalUrl || `https://flowformhq.com/blog/${post.id}`} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={post.data.title} />
+  <meta property="og:description" content={post.data.description} />
+  <meta property="og:url" content={`https://flowformhq.com/blog/${post.id}`} />
+  <meta property="og:image" content={post.data.ogImage || "https://flowformhq.com/og.png"} />
+  <meta property="article:published_time" content={post.data.publishDate} />
+  <meta property="article:author" content={post.data.author} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={post.data.title} />
+  <meta name="twitter:description" content={post.data.description} />
+  <meta name="twitter:image" content={post.data.ogImage || "https://flowformhq.com/og.png"} />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+</head>
+<body class="bg-white text-gray-900 antialiased font-sans flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-bold text-xl tracking-tight text-gray-900">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white font-mono text-base font-bold shadow-sm">F</span>
+        FlowForm
+      </a>
+
+      <div class="flex items-center gap-6 text-sm font-medium">
+        <a href="/" class="text-gray-600 hover:text-gray-900">Home</a>
+        <a href="/blog" class="text-indigo-600 font-semibold">Blog</a>
+        <a href="https://docs.flowformhq.com" class="text-gray-600 hover:text-gray-900">Docs</a>
+        <a href="https://demo.flowformhq.com" target="_blank" class="rounded-md bg-indigo-600 text-white px-3 py-1.5 font-medium hover:bg-indigo-700 transition">
+          Live Demo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Container -->
+  <main class="flex-1 max-w-4xl mx-auto px-6 py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-gray-900">Home</a>
+      <span>/</span>
+      <a href="/blog" class="hover:text-gray-900">Blog</a>
+      <span>/</span>
+      <span class="text-gray-900 font-medium truncate">{post.data.title}</span>
+    </nav>
+
+    <!-- Header Block -->
+    <header class="mb-10 pb-8 border-b border-gray-100">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full mb-4">
+        {post.data.category}
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
+        {post.data.title}
+      </h1>
+      <div class="flex items-center gap-4 text-xs text-gray-500">
+        <span>By <strong class="text-gray-800">{post.data.author}</strong></span>
+        <span>&bull;</span>
+        <time datetime={post.data.publishDate}>{new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+        <span>&bull;</span>
+        <span>Free &amp; Open Source (AGPLv3)</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="prose prose-indigo max-w-none text-gray-800 leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:tracking-tight [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:text-base [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_table]:w-full [&_table]:border-collapse [&_table]:text-sm [&_th]:border-b [&_th]:border-gray-200 [&_th]:bg-gray-50 [&_th]:p-3 [&_th]:text-left [&_th]:font-semibold [&_td]:border-b [&_td]:border-gray-100 [&_td]:p-3 [&_pre]:bg-gray-900 [&_pre]:text-emerald-400 [&_pre]:p-4 [&_pre]:rounded-xl [&_pre]:overflow-x-auto [&_pre]:font-mono [&_pre]:text-xs [&_code]:font-mono [&_code]:text-indigo-600 [&_code]:bg-indigo-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded">
+      <Content />
+    </article>
+
+    <!-- Bottom Conversion CTA -->
+    <div class="mt-16 rounded-2xl bg-indigo-50 border border-indigo-100 p-8 sm:p-10 text-center">
+      <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-white px-3 py-1 rounded-full shadow-sm">Try FlowForm Today</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-4 mb-3">Own your form workflows for $0 platform fees</h2>
+      <p class="text-sm sm:text-base text-gray-600 max-w-xl mx-auto mb-6">
+        Whether you need a simple Mode 1 headless HTML form endpoint or a full Mode 2 dynamic multi-step wizard, FlowForm gives you full data sovereignty and zero per-submission taxes.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 shadow-sm transition">
+          Read Documentation
+        </a>
+        <a href="https://demo.flowformhq.com" target="_blank" class="w-full sm:w-auto rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 shadow-sm transition">
+          Try Live Sandbox
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-100 bg-gray-50 py-12 mt-20">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-500">
+      <p>&copy; 2026 FlowFormHQ. Dual-licensed under AGPLv3 and Commercial Terms.</p>
+    </div>
+  </footer>
+</body>
+</html>
