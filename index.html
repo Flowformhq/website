@@ -127,36 +127,38 @@
   <section class="max-w-5xl mx-auto px-6 pt-16 pb-16 text-center">
     
     <!-- Mode Switcher Pill Container -->
-    <div class="inline-flex p-1 rounded-xl bg-gray-100 border border-gray-200 mb-8 shadow-inner" role="tablist" aria-label="Deployment Mode">
-      <button type="button" id="tab-selfhost" role="tab" aria-selected="true" aria-controls="mode-content"
+    <div class="inline-flex p-1 rounded-xl bg-gray-100 border border-gray-200 mb-8 shadow-inner" role="tablist" aria-label="Form Engine Mode">
+      <button type="button" id="tab-mode1" role="tab" aria-selected="true" aria-controls="mode-content"
         class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700">
-        <span>🛠️ Mode 1: Self-Host (OSS)</span>
+        <span>⚡ Mode 1: Simple Headless Form</span>
+        <span class="text-xs bg-indigo-100 text-indigo-800 font-mono px-2 py-0.5 rounded-full hidden sm:inline">Web3Forms / Formspree</span>
       </button>
-      <button type="button" id="tab-cloud" role="tab" aria-selected="false" aria-controls="mode-content"
+      <button type="button" id="tab-mode2" role="tab" aria-selected="false" aria-controls="mode-content"
         class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900">
-        <span>☁️ Mode 2: Managed Cloud (SaaS)</span>
+        <span>🔀 Mode 2: Multi-Step Dynamic Wizard</span>
+        <span class="text-xs bg-gray-200 text-gray-700 font-mono px-2 py-0.5 rounded-full hidden sm:inline">Typeform / Tally</span>
       </button>
     </div>
 
     <!-- Badge -->
     <p id="hero-badge" class="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-sm text-indigo-700 mb-6 font-medium">
-      Open Source &middot; AGPLv3 + Commercial &middot; $0 Platform Fee
+      Mode 1 &middot; Web3Forms &amp; Formspree Alternative &middot; Zero-JS HTML Endpoint
     </p>
 
     <!-- Main Heading -->
     <h1 id="hero-heading" class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-gray-900">
-      The open-source<br/><span class="text-indigo-600">forms platform</span>
+      Simple form backend<br/><span class="text-indigo-600">for static sites</span>
     </h1>
 
     <!-- Subtitle -->
     <p id="hero-desc" class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-      Headless, API-first form and workflow engine for developers. Build dynamic multi-step wizards with conditional branching. Own your data with complete self-hosted control.
+      Point any raw HTML form to FlowForm. Zero client JavaScript required. Automatic spam honeypot defense, instant email forwarding, and clean JSON payload storage.
     </p>
 
     <!-- Hero Action Buttons -->
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a id="hero-primary-cta" href="https://docs.flowformhq.com/guide/quickstart" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-7 py-3.5 text-base font-semibold text-white hover:bg-indigo-700 shadow-md hover:shadow-lg transition">
-        Get Started Free
+      <a id="hero-primary-cta" href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-7 py-3.5 text-base font-semibold text-white hover:bg-indigo-700 shadow-md hover:shadow-lg transition">
+        View Endpoint Guide
       </a>
       <a id="hero-secondary-cta" href="https://demo.flowformhq.com" target="_blank" class="w-full sm:w-auto rounded-lg border border-gray-300 bg-white px-7 py-3.5 text-base font-semibold text-gray-700 hover:bg-gray-50 shadow-sm transition flex items-center justify-center gap-2">
         <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -165,7 +167,7 @@
     </div>
 
     <p id="hero-footnote" class="mt-4 text-xs sm:text-sm text-gray-500">
-      Self-host for free &middot; AGPLv3 license guarantee &middot; Full OpenAPI REST API
+      Works with Astro, Next.js, Hugo, or raw HTML &middot; 100% data sovereignty &middot; $0 platform fees
     </p>
   </section>
 
@@ -178,7 +180,7 @@
             <span class="h-3 w-3 rounded-full bg-red-500" aria-hidden="true"></span>
             <span class="h-3 w-3 rounded-full bg-yellow-500" aria-hidden="true"></span>
             <span class="h-3 w-3 rounded-full bg-green-500" aria-hidden="true"></span>
-            <span id="terminal-label" class="ml-3 text-xs sm:text-sm text-gray-400 font-mono font-medium">bash — one-command run</span>
+            <span id="terminal-label" class="ml-3 text-xs sm:text-sm text-gray-400 font-mono font-medium">html — mode 1: simple contact form endpoint</span>
           </div>
           <button type="button" id="copy-quickstart" data-target="quickstart-code"
             class="rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-xs text-gray-300 hover:bg-gray-700 hover:text-white transition font-mono">
@@ -186,15 +188,24 @@
           </button>
         </div>
         
-        <pre class="text-xs sm:text-sm text-emerald-400 font-mono leading-relaxed overflow-x-auto"><code id="quickstart-code"># Option 1: Run pre-built Docker image in 5 seconds
-docker run -d -p 8000:80   -e APP_NAME=FlowForm   -e DB_CONNECTION=sqlite   --name flowform-local flowformhq/flowform:latest
+        <pre class="text-xs sm:text-sm text-emerald-400 font-mono leading-relaxed overflow-x-auto"><code id="quickstart-code">&lt;!-- Mode 1: Simple Headless Form (Web3Forms / Formspree Alternative) --&gt;
+&lt;!-- Point any static HTML form directly to your FlowForm endpoint --&gt;
+&lt;form action="https://demo.flowformhq.com/f/contact" method="POST"&gt;
+  &lt;input type="text" name="name" placeholder="Your Name" required /&gt;
+  &lt;input type="email" name="email" placeholder="you@company.com" required /&gt;
+  &lt;textarea name="message" placeholder="How can we help?"&gt;&lt;/textarea&gt;
 
-# &rarr; Admin Panel: http://localhost:8000/admin (Filament 3 Dashboard)
-# &rarr; Fetch form schema in one API call
-curl http://localhost:8000/api/v1/forms/{uuid}/schema
+  &lt;!-- Spam honeypot: bots fill this and get quietly dropped --&gt;
+  &lt;input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" /&gt;
 
-# &rarr; Submit response with server-evaluated conditional branching
-curl -X POST http://localhost:8000/api/v1/submissions   -H "Content-Type: application/json"   -d '{"form_uuid":"form_01hxyz","data":{"email":"dev@company.com","budget":5000}}'</code></pre>
+  &lt;!-- Custom redirect URL after successful submission --&gt;
+  &lt;input type="hidden" name="_next" value="https://mysite.com/thanks" /&gt;
+
+  &lt;button type="submit"&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Or post arbitrary JSON via cURL / AJAX: --&gt;
+&lt;!-- curl -X POST https://demo.flowformhq.com/api/v1/f/contact -H "Content-Type: application/json" -d '{"email":"lead@co.com"}' --&gt;</code></pre>
       </div>
     </div>
   </section>
@@ -453,7 +464,7 @@ curl -X POST http://localhost:8000/api/v1/submissions   -H "Content-Type: applic
     <div class="max-w-3xl mx-auto px-6">
       <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-xl border border-indigo-100">
         <div class="text-center mb-8">
-          <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">Mode 2 Managed SaaS</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">Managed Cloud Option</span>
           <h2 class="text-3xl font-extrabold text-gray-900 mt-4 mb-2">Apply for the FlowForm Cloud Trial</h2>
           <p class="text-gray-600 text-sm">Experience managed zero-ops forms with high-availability infrastructure, automated backups, and team workspaces.</p>
         </div>

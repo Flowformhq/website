@@ -38,10 +38,10 @@ if (copyButton && navigator.clipboard) {
 }
 
 // ==========================================
-// Mode Switcher (Mode 1: Self-Host vs Mode 2: Cloud)
+// Mode Switcher (Mode 1: Simple Form vs Mode 2: Multi-Step Wizard)
 // ==========================================
-const tabSelfhost = document.querySelector('#tab-selfhost')
-const tabCloud = document.querySelector('#tab-cloud')
+const tabMode1 = document.querySelector('#tab-mode1')
+const tabMode2 = document.querySelector('#tab-mode2')
 
 const heroBadge = document.querySelector('#hero-badge')
 const heroHeading = document.querySelector('#hero-heading')
@@ -52,89 +52,107 @@ const heroFootnote = document.querySelector('#hero-footnote')
 const terminalLabel = document.querySelector('#terminal-label')
 const quickstartCode = document.querySelector('#quickstart-code')
 
-const selfhostCode = `# Option 1: Run pre-built Docker image in 5 seconds
-docker run -d -p 8000:80 \\
-  -e APP_NAME=FlowForm \\
-  -e DB_CONNECTION=sqlite \\
-  --name flowform-local flowformhq/flowform:latest
+const mode1Code = `<!-- Mode 1: Simple Headless Form (Web3Forms / Formspree Alternative) -->
+<!-- Point any static HTML form directly to your FlowForm endpoint -->
+<form action="https://demo.flowformhq.com/f/contact" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="you@company.com" required />
+  <textarea name="message" placeholder="How can we help?"></textarea>
 
-# → Admin Panel: http://localhost:8000/admin (Filament 3 Dashboard)
-# → Fetch form schema in one API call
-curl http://localhost:8000/api/v1/forms/{uuid}/schema
+  <!-- Spam honeypot: bots fill this and get quietly dropped -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-# → Submit response with server-evaluated conditional branching
-curl -X POST http://localhost:8000/api/v1/submissions \\
-  -H "Content-Type: application/json" \\
-  -d '{"form_uuid":"form_01hxyz","data":{"email":"dev@company.com","budget":5000}}'`
+  <!-- Custom redirect URL after successful submission -->
+  <input type="hidden" name="_next" value="https://mysite.com/thanks" />
 
-const cloudCode = `# FlowForm Cloud Managed API
-# Zero infrastructure management · Automated backups & global CDN
+  <button type="submit">Send Message</button>
+</form>
 
-# 1. Fetch form schema from Managed Tenant
-curl https://api.flowformhq.com/v1/forms/onboarding-wizard/schema \\
-  -H "Authorization: Bearer ff_live_secret_key"
+<!-- Or post arbitrary JSON via cURL / AJAX: -->
+<!-- curl -X POST https://demo.flowformhq.com/api/v1/f/contact -H "Content-Type: application/json" -d '{"email":"lead@co.com"}' -->`
 
-# 2. Ingest step submission (instant webhook routing to Slack/DB)
-curl -X POST https://api.flowformhq.com/v1/submissions \\
-  -H "Authorization: Bearer ff_live_secret_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "step_id": 2,
-    "data": {
-      "company_size": "50-200",
-      "hosting_preference": "managed_cloud"
-    }
-  }'`
+const mode2Code = `// Mode 2: Dynamic Multi-Step Wizard (Typeform / Tally Alternative)
+// Schema-driven branching, step sequencing & server-side validation
+import { FlowForm } from '@flowformhq/react-starter'
+
+// 1. Fetch dynamic form schema (steps, fields, branching rules)
+const schema = await fetch('https://demo.flowformhq.com/api/v1/forms/{uuid}/schema')
+  .then(res => res.json())
+
+// 2. Render multi-step wizard in Next.js / React / Vue / Livewire
+export default function OnboardingFunnel() {
+  return (
+    <FlowForm
+      schema={schema}
+      onStepChange={(step) => console.log('Current step:', step)}
+      onSubmit={async (payload) => {
+        await fetch('https://demo.flowformhq.com/api/v1/submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form_uuid: schema.uuid, data: payload })
+        })
+      }}
+    />
+  )
+}`
 
 function setMode(mode) {
-  if (mode === 'selfhost') {
-    tabSelfhost.setAttribute('aria-selected', 'true')
-    tabSelfhost.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
-    tabCloud.setAttribute('aria-selected', 'false')
-    tabCloud.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+  if (mode === 'mode1') {
+    if (tabMode1) {
+      tabMode1.setAttribute('aria-selected', 'true')
+      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
+    }
+    if (tabMode2) {
+      tabMode2.setAttribute('aria-selected', 'false')
+      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+    }
 
-    if (heroBadge) heroBadge.textContent = 'Open Source · AGPLv3 + Commercial · $0 Platform Fee'
-    if (heroHeading) heroHeading.innerHTML = 'The open-source<br/><span class="text-indigo-600">forms platform</span>'
-    if (heroDesc) heroDesc.textContent = 'Headless, API-first form and workflow engine for developers. Build dynamic multi-step wizards with conditional branching. Own your data with complete self-hosted control.'
+    if (heroBadge) heroBadge.textContent = 'Mode 1 · Web3Forms & Formspree Alternative · Zero-JS HTML Endpoint'
+    if (heroHeading) heroHeading.innerHTML = 'Simple form backend<br/><span class="text-indigo-600">for static sites</span>'
+    if (heroDesc) heroDesc.textContent = 'Point any raw HTML form to FlowForm. Zero client JavaScript required. Automatic spam honeypot defense, instant email forwarding, and clean JSON payload storage.'
     if (heroPrimaryCta) {
-      heroPrimaryCta.textContent = 'Get Started Free'
-      heroPrimaryCta.href = 'https://docs.flowformhq.com/guide/quickstart'
+      heroPrimaryCta.textContent = 'View Endpoint Guide'
+      heroPrimaryCta.href = 'https://docs.flowformhq.com'
       heroPrimaryCta.target = '_self'
     }
     if (heroSecondaryCta) {
       heroSecondaryCta.innerHTML = '<span class="h-2 w-2 rounded-full bg-emerald-500"></span> Try Live Demo'
       heroSecondaryCta.href = 'https://demo.flowformhq.com'
     }
-    if (heroFootnote) heroFootnote.textContent = 'Self-host for free · AGPLv3 license guarantee · Full OpenAPI REST API'
-    if (terminalLabel) terminalLabel.textContent = 'bash — one-command run'
-    if (quickstartCode) quickstartCode.textContent = selfhostCode
+    if (heroFootnote) heroFootnote.textContent = 'Works with Astro, Next.js, Hugo, or raw HTML · 100% data sovereignty · $0 platform fees'
+    if (terminalLabel) terminalLabel.textContent = 'html — mode 1: simple contact form endpoint'
+    if (quickstartCode) quickstartCode.textContent = mode1Code
   } else {
-    tabCloud.setAttribute('aria-selected', 'true')
-    tabCloud.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
-    tabSelfhost.setAttribute('aria-selected', 'false')
-    tabSelfhost.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+    if (tabMode2) {
+      tabMode2.setAttribute('aria-selected', 'true')
+      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
+    }
+    if (tabMode1) {
+      tabMode1.setAttribute('aria-selected', 'false')
+      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+    }
 
-    if (heroBadge) heroBadge.textContent = 'Managed Cloud · Turnkey Infrastructure · High Availability'
-    if (heroHeading) heroHeading.innerHTML = 'Production forms<br/><span class="text-indigo-600">without server ops</span>'
-    if (heroDesc) heroDesc.textContent = 'Multi-tenant, fully-managed form and workflow engine. Automated migrations, encrypted backups, enterprise webhooks, and team workspaces ready in seconds.'
+    if (heroBadge) heroBadge.textContent = 'Mode 2 · Typeform & Tally Alternative · Schema-Driven Branching Wizard'
+    if (heroHeading) heroHeading.innerHTML = 'Dynamic multi-step forms<br/><span class="text-indigo-600">with conditional logic</span>'
+    if (heroDesc) heroDesc.textContent = 'Schema-driven form engine with step-by-step sequencing, branching logic jumps, and server-side validation. Drop-in starter kits for React, Vue 3, Next.js, and Livewire.'
     if (heroPrimaryCta) {
-      heroPrimaryCta.textContent = 'Request Cloud Trial'
-      heroPrimaryCta.href = '#waitlist'
+      heroPrimaryCta.textContent = 'Explore Starter Kits'
+      heroPrimaryCta.href = 'https://docs.flowformhq.com'
       heroPrimaryCta.target = '_self'
     }
     if (heroSecondaryCta) {
-      heroSecondaryCta.innerHTML = '<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span> Open Live Sandbox'
+      heroSecondaryCta.innerHTML = '<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span> Open Wizard Sandbox'
       heroSecondaryCta.href = 'https://demo.flowformhq.com'
     }
-    if (heroFootnote) heroFootnote.textContent = 'Zero maintenance · Automated multi-region backups · 99.9% uptime SLA'
-    if (terminalLabel) terminalLabel.textContent = 'curl — managed cloud api'
-    if (quickstartCode) quickstartCode.textContent = cloudCode
+    if (heroFootnote) heroFootnote.textContent = 'Server-evaluated conditional rules · Typeform-style logic jumps · React, Vue, Livewire SDKs'
+    if (terminalLabel) terminalLabel.textContent = 'jsx — mode 2: dynamic multi-step wizard'
+    if (quickstartCode) quickstartCode.textContent = mode2Code
   }
 }
 
-if (tabSelfhost && tabCloud) {
-  tabSelfhost.addEventListener('click', () => setMode('selfhost'))
-  tabCloud.addEventListener('click', () => setMode('cloud'))
+if (tabMode1 && tabMode2) {
+  tabMode1.addEventListener('click', () => setMode('mode1'))
+  tabMode2.addEventListener('click', () => setMode('mode2'))
 }
 
 // ==========================================
