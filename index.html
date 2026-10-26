@@ -375,7 +375,7 @@ curl -X POST http://localhost:8000/api/v1/submissions   -H "Content-Type: applic
             <li class="flex items-start gap-2"><span>•</span> Headless REST API &amp; Schema Generator</li>
             <li class="flex items-start gap-2"><span>•</span> Multi-step form step sequencing</li>
             <li class="flex items-start gap-2"><span>•</span> Server-evaluated visibility &amp; required rules</li>
-            <li class="flex items-start gap-2"><span>•</span> Filament 3 dashboard &amp; export tools</li>
+            <li class="flex items-start gap-2"><span>•</span> Filament 5 dashboard &amp; export tools (Laravel 13 + PHP 8.4)</li>
             <li class="flex items-start gap-2"><span>•</span> Docker containerization &amp; SQLite defaults</li>
           </ul>
         </div>
@@ -391,19 +391,33 @@ curl -X POST http://localhost:8000/api/v1/submissions   -H "Content-Type: applic
             <li class="flex items-start gap-2">
               <span>•</span>
               <div>
-                <strong class="text-white">Model Context Protocol (MCP) Server:</strong> Enable AI agents to dynamically generate &amp; submit forms.
+                <a href="https://github.com/Flowformhq/flowform/issues/38" target="_blank" class="text-white hover:text-indigo-300 font-semibold underline decoration-indigo-500/50">Model Context Protocol (MCP) Server:</a>
+                <span class="text-gray-400"> Enable AI agents (Claude, Cursor) to dynamically inspect schemas &amp; generate forms.</span>
+                <span class="inline-block text-xs bg-indigo-900/60 text-indigo-300 px-1.5 py-0.5 rounded ml-1">#38</span>
               </div>
             </li>
             <li class="flex items-start gap-2">
               <span>•</span>
               <div>
-                <strong class="text-white">GitHub &amp; Google Social OAuth:</strong> 1-click authentication for dashboard admins.
+                <a href="https://github.com/Flowformhq/flowform/issues/4" target="_blank" class="text-white hover:text-indigo-300 font-semibold underline decoration-indigo-500/50">GitHub &amp; Google Social OAuth:</a>
+                <span class="text-gray-400"> 1-click authentication for dashboard admins.</span>
+                <span class="inline-block text-xs bg-indigo-900/60 text-indigo-300 px-1.5 py-0.5 rounded ml-1">#4, #42</span>
               </div>
             </li>
             <li class="flex items-start gap-2">
               <span>•</span>
               <div>
-                <strong class="text-white">Waitlist &amp; Lead Relay:</strong> Automated transactional email dispatch for cloud prospects.
+                <a href="https://github.com/Flowformhq/flowform/issues/39" target="_blank" class="text-white hover:text-indigo-300 font-semibold underline decoration-indigo-500/50">Waitlist &amp; Lead Relay:</a>
+                <span class="text-gray-400"> Automated transactional email pipeline for cloud prospects to trial@flowformhq.com.</span>
+                <span class="inline-block text-xs bg-indigo-900/60 text-indigo-300 px-1.5 py-0.5 rounded ml-1">#39</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span>•</span>
+              <div>
+                <a href="https://github.com/Flowformhq/flowform/issues/40" target="_blank" class="text-white hover:text-indigo-300 font-semibold underline decoration-indigo-500/50">Dynamic Multi-Step Branching:</a>
+                <span class="text-gray-400"> Typeform-style conditional jump logic across React, Vue, &amp; Livewire.</span>
+                <span class="inline-block text-xs bg-indigo-900/60 text-indigo-300 px-1.5 py-0.5 rounded ml-1">#40</span>
               </div>
             </li>
           </ul>
@@ -417,7 +431,14 @@ curl -X POST http://localhost:8000/api/v1/submissions   -H "Content-Type: applic
           </div>
           <h3 class="text-xl font-bold mb-4 text-white">Scale &amp; Security</h3>
           <ul class="space-y-3 text-sm text-gray-300">
-            <li class="flex items-start gap-2"><span>•</span> Zero-Knowledge client-side field encryption</li>
+            <li class="flex items-start gap-2">
+              <span>•</span>
+              <div>
+                <a href="https://github.com/Flowformhq/flowform/issues/41" target="_blank" class="text-white hover:text-indigo-300 font-semibold underline decoration-indigo-500/50">Field-Level Encryption at Rest:</a>
+                <span class="text-gray-400"> Zero-knowledge GDPR/HIPAA compliance with client-managed keys.</span>
+                <span class="inline-block text-xs bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded ml-1">#41</span>
+              </div>
+            </li>
             <li class="flex items-start gap-2"><span>•</span> Multi-tenant workspaces &amp; RBAC seats</li>
             <li class="flex items-start gap-2"><span>•</span> Webhook event retries &amp; signature verifications</li>
             <li class="flex items-start gap-2"><span>•</span> Native PostgreSQL partitioning for 1M+ responses</li>
