@@ -171,7 +171,7 @@ const waitlistForm = document.querySelector('#waitlist-form')
 const waitlistFeedback = document.querySelector('#waitlist-feedback')
 
 if (waitlistForm) {
-  waitlistForm.addEventListener('submit', (e) => {
+  waitlistForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const name = document.querySelector('#wl-name')?.value || ''
@@ -180,6 +180,47 @@ if (waitlistForm) {
     const volume = document.querySelector('#wl-volume')?.value || ''
     const usecase = document.querySelector('#wl-usecase')?.value || ''
     const notes = document.querySelector('#wl-notes')?.value || ''
+
+    const submitBtn = document.querySelector('#waitlist-submit')
+    if (submitBtn) {
+      submitBtn.textContent = 'Submitting...'
+      submitBtn.disabled = true
+    }
+
+    try {
+      const response = await fetch('https://demo.flowformhq.com/f/cloud-trial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          volume,
+          usecase,
+          notes,
+          _gotcha: ''
+        })
+      })
+
+      if (response.ok) {
+        if (waitlistFeedback) {
+          waitlistFeedback.hidden = false
+          waitlistFeedback.innerHTML = `🎉 <strong>Thank you, ${name}!</strong> Your cloud trial application has been recorded and dispatched to <strong>trial@flowformhq.com</strong>. We will review your requirements and provision your tenant workspace.`
+          waitlistFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        }
+        waitlistForm.reset()
+        if (submitBtn) {
+          submitBtn.textContent = 'Trial Application Submitted ✓'
+          submitBtn.classList.add('opacity-75', 'cursor-not-allowed')
+        }
+        return
+      }
+    } catch (err) {
+      console.warn('Direct API submission failed, falling back to mail client', err)
+    }
 
     const subject = encodeURIComponent(`FlowForm Cloud Trial Application - ${company} (${name})`)
     const body = encodeURIComponent(
@@ -204,7 +245,6 @@ if (waitlistForm) {
       waitlistFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     }
 
-    const submitBtn = document.querySelector('#waitlist-submit')
     if (submitBtn) {
       submitBtn.textContent = 'Application Prepared (Check your Email Client) ✓'
       submitBtn.disabled = true

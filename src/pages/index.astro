@@ -105,10 +105,11 @@ import '../style.css';
           Live Demo
         </a>
         <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Features</a>
+        <a href="#pricing" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium">Pricing</a>
         <a href="#compare" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Compare</a>
         <a href="#roadmap" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Roadmap</a>
-        <a href="#waitlist" class="rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 px-3 py-1.5 font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900 transition">
-          Cloud Trial
+        <a href="https://api.flowformhq.com/admin/register" target="_blank" class="rounded-md bg-indigo-600 text-white px-3.5 py-1.5 font-medium hover:bg-indigo-700 shadow-sm transition">
+          Sign Up Free →
         </a>
         <a href="https://github.com/Flowformhq/flowform" target="_blank" class="inline-flex items-center gap-1.5 rounded-md border border-gray-300 dark:border-gray-700 px-3 py-1.5 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">
           <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -195,12 +196,12 @@ import '../style.css';
 
     <!-- Hero Action Buttons -->
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a id="hero-primary-cta" href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-7 py-3.5 text-base font-semibold text-white hover:bg-indigo-700 shadow-md hover:shadow-lg transition">
-        View Endpoint Guide
+      <a id="hero-primary-cta" href="https://api.flowformhq.com/admin/register" target="_blank" class="w-full sm:w-auto rounded-lg bg-indigo-600 px-7 py-3.5 text-base font-semibold text-white hover:bg-indigo-700 shadow-md hover:shadow-lg transition">
+        Create Free Endpoint →
       </a>
-      <a id="hero-secondary-cta" href="https://demo.flowformhq.com" target="_blank" class="w-full sm:w-auto rounded-lg border border-gray-300 bg-white px-7 py-3.5 text-base font-semibold text-gray-700 hover:bg-gray-50 shadow-sm transition flex items-center justify-center gap-2">
+      <a id="hero-secondary-cta" href="https://docs.flowformhq.com" class="w-full sm:w-auto rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-7 py-3.5 text-base font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 shadow-sm transition flex items-center justify-center gap-2">
         <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-        Try Live Demo
+        Read Documentation
       </a>
     </div>
 
@@ -497,6 +498,100 @@ import '../style.css';
     </div>
   </section>
 
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">Transparent Pricing</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Simple, honest pricing for developers</h2>
+        <p class="text-gray-600 dark:text-gray-300 text-lg">Self-host 100% free forever with complete data custody, or let us manage uptime, deliverability, and spam protection with stablecoin billing.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Self-Hosted -->
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Self-Hosted</h3>
+              <span class="text-xs font-mono bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded text-gray-700 dark:text-gray-300">AGPLv3</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">For teams that need 100% data residency and on-premise control.</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$0</span>
+              <span class="text-sm text-gray-500"> / forever</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8">
+              <li class="flex items-center gap-2">✓ Unlimited forms &amp; submissions</li>
+              <li class="flex items-center gap-2">✓ Full Filament 5 admin panel</li>
+              <li class="flex items-center gap-2">✓ Mode 1 &amp; Mode 2 engines</li>
+              <li class="flex items-center gap-2">✓ Single Docker container deploy</li>
+              <li class="flex items-center gap-2">✓ Complete database custody</li>
+            </ul>
+          </div>
+          <a href="https://docs.flowformhq.com/guide/deployment.html" class="w-full text-center rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 py-3 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+            View Deployment Guide
+          </a>
+        </div>
+
+        <!-- Cloud Free -->
+        <div class="rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-gray-900 p-8 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Cloud Free</h3>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">Instant</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">For personal projects, portfolios, and static landing pages.</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$0</span>
+              <span class="text-sm text-gray-500"> / month</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8">
+              <li class="flex items-center gap-2">✓ <strong>50 submissions / month</strong></li>
+              <li class="flex items-center gap-2">✓ Zero-JS Mode 1 endpoints</li>
+              <li class="flex items-center gap-2">✓ Automatic honeypot spam protection</li>
+              <li class="flex items-center gap-2">✓ Instant email forwarding</li>
+              <li class="flex items-center gap-2">✓ CSV &amp; JSON data export</li>
+            </ul>
+          </div>
+          <a href="https://api.flowformhq.com/admin/register" target="_blank" class="w-full text-center rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700 shadow-md transition">
+            Create Free Endpoint →
+          </a>
+        </div>
+
+        <!-- Cloud Pro -->
+        <div class="rounded-2xl border-2 border-indigo-600 dark:border-cyan-500 bg-gradient-to-b from-indigo-50/50 to-white dark:from-indigo-950/30 dark:to-gray-900 p-8 flex flex-col justify-between relative shadow-lg">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 px-3.5 py-0.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
+            Popular &middot; USDT / USDC
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Cloud Pro</h3>
+              <span class="text-xs font-mono text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-800">Zoneless</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">For commercial sites, agencies, and production applications.</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$9</span>
+              <span class="text-sm text-gray-500"> / month</span>
+              <div class="text-xs text-indigo-600 dark:text-cyan-400 mt-1">or $79/year in USDT or USDC</div>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8">
+              <li class="flex items-center gap-2">✓ <strong>10,000 submissions / month</strong></li>
+              <li class="flex items-center gap-2">✓ Unlimited form endpoints</li>
+              <li class="flex items-center gap-2">✓ Custom thank-you redirect URLs</li>
+              <li class="flex items-center gap-2">✓ Allowed domain origin whitelist</li>
+              <li class="flex items-center gap-2">✓ Multiple notification recipients</li>
+              <li class="flex items-center gap-2">✓ Priority deliverability relay</li>
+              <li class="flex items-center gap-2">✓ Zoneless instant stablecoin checkout</li>
+            </ul>
+          </div>
+          <a href="https://api.flowformhq.com/admin/register" target="_blank" class="w-full text-center rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 py-3 text-sm font-semibold text-white hover:from-cyan-400 hover:to-indigo-500 shadow-md transition">
+            Get Pro with USDT/USDC →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Cloud Trial Waitlist Section -->
   <section id="waitlist" class="py-20 bg-indigo-50 border-t border-b border-indigo-100">
     <div class="max-w-3xl mx-auto px-6">
@@ -549,6 +644,9 @@ import '../style.css';
             <textarea id="wl-notes" rows="3" placeholder="Tell us about custom webhooks, compliance (GDPR/HIPAA), or integration needs..."
               class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm text-gray-900 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"></textarea>
           </div>
+
+          <!-- Honeypot spam trap -->
+          <input type="text" name="_gotcha" id="wl-gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div id="waitlist-feedback" hidden class="rounded-lg bg-emerald-50 border border-emerald-200 p-4 text-emerald-800 text-sm">
             🎉 Thank you for applying! Your request has been dispatched to <strong>trial@flowformhq.com</strong>. We will provision your cloud tenant workspace shortly.
