@@ -93,4 +93,4 @@ Transitioning an existing HTML form from Web3Forms to FlowForm takes less than t
 
 If all you need is a quick throwaway form for a personal weekend hackathon, Web3Forms is an easy tool.
 
-However, for production applications, client projects, and startups that require **reliable database storage, searchable admin dashboards, GDPR compliance, and $0 platform costs**, FlowForm Mode 1 gives you the speed of a headless endpoint with the power of a full-stack engine.
+However, for production applications, client projects, and startups that require **reliable database storage, searchable admin dashboards, GDPR compliance, and transparent pricing**, FlowForm Mode 1 gives you the speed of a headless endpoint with the power of a full-stack engine. It is available as **$0 self-hosted forever**, or managed Cloud starting at **just $1 pay-as-you-go** (5,000 credits that never expire, with Amazon SES email forwarding or zero-cost webhook relay).

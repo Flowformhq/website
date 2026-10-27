@@ -24,11 +24,9 @@ Formspree charges users based on monthly submission volume tiers:
 
 For growing startups, SaaS marketing sites, and high-traffic blogs, submission volume is unpredictable. Sudden viral traffic, marketing product launches, or seasonal spikes frequently push websites past arbitrary SaaS thresholds, causing form submissions to be rejected or incurring surprise overage invoices.
 
-In contrast, **FlowForm Mode 1** runs directly as a Docker container on any $5/month VPS (or directly alongside your existing web servers) with SQLite or PostgreSQL:
-- **Platform Fee:** $0 forever.
-- **Monthly Submission Limit:** Unlimited.
-- **Form Endpoints:** Unlimited.
-- **Team Seats:** Unlimited.
+In contrast, **FlowForm** provides two developer-first hosting models:
+1. **Self-Hosted:** Runs directly as a Docker container on any $5/month VPS with SQLite or PostgreSQL — **$0 platform fee, unlimited forms, unlimited submissions forever**.
+2. **FlowForm Cloud:** Anti-subscription pay-as-you-go starting at **just $1** (5,000 credits). Submissions via Webhooks/Slack cost 1 credit (~5,000 responses for $1); Amazon SES email forwarding costs 5 credits (~1,000 responses for $1). **Credits never expire**, eliminating Formspree's $120/year minimum recurring trap.
 
 ---
 

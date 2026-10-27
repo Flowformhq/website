@@ -587,9 +587,9 @@ import '../style.css';
   <section id="pricing" class="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">Transparent Pricing</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Simple, honest pricing for developers</h2>
-        <p class="text-gray-600 dark:text-gray-300 text-lg">Self-host 100% free forever with complete data custody, or let us manage uptime, deliverability, and spam protection with stablecoin billing.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">Anti-Subscription Pricing</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4">Start at $0. Top up for as low as $1.</h2>
+        <p class="text-gray-600 dark:text-gray-300 text-lg">We only charge where we get charged. Submissions with zero-cost webhooks or database storage are fractionally metered. Amazon SES email forwarding is passed through at cost. <strong>Credits never expire.</strong></p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -631,7 +631,7 @@ import '../style.css';
               <span class="text-sm text-gray-500"> / month</span>
             </div>
             <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8">
-              <li class="flex items-center gap-2">✓ <strong>50 submissions / month</strong></li>
+              <li class="flex items-center gap-2">✓ <strong>50 submissions / month free</strong></li>
               <li class="flex items-center gap-2">✓ Zero-JS Mode 1 endpoints</li>
               <li class="flex items-center gap-2">✓ Automatic honeypot spam protection</li>
               <li class="flex items-center gap-2">✓ Instant email forwarding</li>
@@ -643,36 +643,49 @@ import '../style.css';
           </a>
         </div>
 
-        <!-- Cloud Pro -->
+        <!-- Pay As You Go Credits -->
         <div class="rounded-2xl border-2 border-indigo-600 dark:border-cyan-500 bg-gradient-to-b from-indigo-50/50 to-white dark:from-indigo-950/30 dark:to-gray-900 p-8 flex flex-col justify-between relative shadow-lg">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 px-3.5 py-0.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
-            Popular &middot; USDT / USDC
+            Fair Metered &middot; Credits Never Expire
           </div>
           <div>
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Cloud Pro</h3>
-              <span class="text-xs font-mono text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-800">Zoneless</span>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Pay-As-You-Go</h3>
+              <span class="text-xs font-mono text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-200 dark:border-cyan-800">Zoneless USDT/USDC</span>
             </div>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">For commercial sites, agencies, and production applications.</p>
-            <div class="mb-6">
-              <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$9</span>
-              <span class="text-sm text-gray-500"> / month</span>
-              <div class="text-xs text-indigo-600 dark:text-cyan-400 mt-1">or $79/year in USDT or USDC</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">No monthly subscription traps. Top up once, consume at your own pace.</p>
+            <div class="mb-4">
+              <span class="text-3xl font-extrabold text-gray-900 dark:text-white">From $1</span>
+              <span class="text-sm text-gray-500"> / 5,000 Credits</span>
+              <div class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mt-1">✓ Credits never expire &middot; No recurring monthly fees</div>
             </div>
-            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8">
-              <li class="flex items-center gap-2">✓ <strong>10,000 submissions / month</strong></li>
+
+            <div class="rounded-lg bg-indigo-50/60 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900 p-3 mb-6 text-xs text-gray-700 dark:text-gray-300 space-y-1.5">
+              <div class="font-semibold text-indigo-900 dark:text-cyan-300">What does $1 (5k Credits) give you?</div>
+              <div class="flex items-center justify-between">
+                <span>Webhook / Discord / DB only:</span>
+                <span class="font-bold text-gray-900 dark:text-white">~5,000 submissions</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Amazon SES Email Relay:</span>
+                <span class="font-bold text-gray-900 dark:text-white">~1,000 submissions</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2.5 text-sm text-gray-600 dark:text-gray-300 mb-6">
               <li class="flex items-center gap-2">✓ Unlimited form endpoints</li>
               <li class="flex items-center gap-2">✓ Custom thank-you redirect URLs</li>
               <li class="flex items-center gap-2">✓ Allowed domain origin whitelist</li>
-              <li class="flex items-center gap-2">✓ Multiple notification recipients</li>
-              <li class="flex items-center gap-2">✓ Priority deliverability relay</li>
-              <li class="flex items-center gap-2">✓ Zoneless instant stablecoin checkout</li>
+              <li class="flex items-center gap-2">✓ Top-up tiers: <strong>$1</strong> (5k) &middot; <strong>$5</strong> (28k) &middot; <strong>$15</strong> (100k)</li>
             </ul>
           </div>
           <a href="https://api.flowformhq.com/admin/register" target="_blank" class="w-full text-center rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 py-3 text-sm font-semibold text-white hover:from-cyan-400 hover:to-indigo-500 shadow-md transition">
-            Get Pro with USDT/USDC →
+            Start with $0 or Top Up for $1 →
           </a>
         </div>
+      </div>
+    </div>
+  </section>
       </div>
     </div>
   </section>
