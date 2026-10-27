@@ -78,11 +78,14 @@ const schemaOrg = {
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800&family=Google+Sans+Text:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased font-sans flex flex-col min-h-screen transition-colors duration-200">
+<body class="bg-white dark:bg-[#0B0F19] text-gray-900 dark:text-gray-100 antialiased font-sans flex flex-col min-h-screen transition-colors duration-200">
 
   <!-- Header -->
-  <header class="border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md sticky top-0 z-40">
+  <header class="border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#0B0F19]/80 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
         <img src="/brand/flowform-logo-light.svg" alt="FlowForm" class="h-8 w-auto dark:hidden" />
