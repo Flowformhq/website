@@ -109,24 +109,24 @@ function setMode(mode) {
   if (mode === 'mode1') {
     if (tabMode1) {
       tabMode1.setAttribute('aria-selected', 'true')
-      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
+      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white dark:bg-gray-800 text-indigo-700 dark:text-cyan-400'
     }
     if (tabMode2) {
       tabMode2.setAttribute('aria-selected', 'false')
-      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
     }
 
     if (heroBadge) heroBadge.textContent = 'Mode 1 · Web3Forms & Formspree Alternative · Zero-JS HTML Endpoint'
-    if (heroHeading) heroHeading.innerHTML = 'Simple form backend<br/><span class="text-indigo-600">for static sites</span>'
+    if (heroHeading) heroHeading.innerHTML = 'Simple form backend<br/><span class="text-indigo-600 dark:text-cyan-400">for static sites</span>'
     if (heroDesc) heroDesc.textContent = 'Point any raw HTML form to FlowForm. Zero client JavaScript required. Automatic spam honeypot defense, instant email forwarding, and clean JSON payload storage.'
     if (heroPrimaryCta) {
-      heroPrimaryCta.textContent = 'View Endpoint Guide'
-      heroPrimaryCta.href = 'https://docs.flowformhq.com'
-      heroPrimaryCta.target = '_self'
+      heroPrimaryCta.textContent = 'Create Free Endpoint →'
+      heroPrimaryCta.href = 'https://api.flowformhq.com/admin/register'
+      heroPrimaryCta.target = '_blank'
     }
     if (heroSecondaryCta) {
-      heroSecondaryCta.innerHTML = '<span class="h-2 w-2 rounded-full bg-emerald-500"></span> Try Live Demo'
-      heroSecondaryCta.href = 'https://demo.flowformhq.com'
+      heroSecondaryCta.innerHTML = '<span class="h-2 w-2 rounded-full bg-emerald-500"></span> Read Documentation'
+      heroSecondaryCta.href = 'https://docs.flowformhq.com'
     }
     if (heroFootnote) heroFootnote.textContent = 'Works with Astro, Next.js, Hugo, or raw HTML · 100% data sovereignty · $0 platform fees'
     if (terminalLabel) terminalLabel.textContent = 'html — mode 1: simple contact form endpoint'
@@ -134,15 +134,15 @@ function setMode(mode) {
   } else {
     if (tabMode2) {
       tabMode2.setAttribute('aria-selected', 'true')
-      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white text-indigo-700'
+      tabMode2.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm bg-white dark:bg-gray-800 text-indigo-700 dark:text-cyan-400'
     }
     if (tabMode1) {
       tabMode1.setAttribute('aria-selected', 'false')
-      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 hover:text-gray-900'
+      tabMode1.className = 'flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
     }
 
     if (heroBadge) heroBadge.textContent = 'Mode 2 · Typeform & Tally Alternative · Schema-Driven Branching Wizard'
-    if (heroHeading) heroHeading.innerHTML = 'Dynamic multi-step forms<br/><span class="text-indigo-600">with conditional logic</span>'
+    if (heroHeading) heroHeading.innerHTML = 'Dynamic multi-step forms<br/><span class="text-indigo-600 dark:text-cyan-400">with conditional logic</span>'
     if (heroDesc) heroDesc.textContent = 'Schema-driven form engine with step-by-step sequencing, branching logic jumps, and server-side validation. Drop-in starter kits for React, Vue 3, Next.js, and Livewire.'
     if (heroPrimaryCta) {
       heroPrimaryCta.textContent = 'Explore Starter Kits'

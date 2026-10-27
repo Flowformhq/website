@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <defs>
+    <linearGradient id="buildeon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Buildeon Official Mark (Scaled from 1024x1024 bimi-logo) -->
+  <g transform="translate(0, 2) scale(0.035)">
+    <path fill-rule="evenodd" fill="url(#buildeon-grad)" d="M285,214 L286,212 L555,213 L575,217 L595,224 L621,239 L639,255 L669,255 L676,241 L685,233 L698,228 L711,228 L722,232 L734,243 L739,254 L740,269 L733,285 L724,293 L712,298 L698,298 L685,293 L674,282 L669,271 L652,272 L664,291 L675,325 L678,345 L676,383 L667,414 L649,446 L634,463 L607,483 L582,494 L289,495 L285,494 L285,215 Z M344,271 L342,285 L342,427 L344,443 L554,442 L567,438 L590,424 L604,408 L612,394 L618,376 L620,358 L618,339 L613,322 L599,299 L583,284 L566,275 L557,271 L345,271 Z M285,513 L286,511 L583,511 L617,517 L647,530 L666,543 L687,564 L701,584 L714,613 L721,646 L721,675 L715,706 L706,729 L688,757 L665,780 L638,797 L606,808 L582,811 L286,811 L285,514 Z M343,568 L342,752 L344,754 L587,753 L605,748 L630,733 L646,716 L658,694 L663,675 L663,648 L655,621 L644,603 L628,587 L604,573 L585,568 L344,568 Z"/>
+  </g>
+
+  <!-- Buildeon Wordmark -->
+  <text x="36" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.03em" fill="currentColor">
+    Buildeon
+  </text>
+</svg>
