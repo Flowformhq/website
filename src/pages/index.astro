@@ -11,14 +11,25 @@ import '../style.css';
   <meta name="description" content="Headless, API-first form and workflow engine. Open-source, self-hostable with $0 platform pricing, or fully managed cloud SaaS with instant setup." />
   <link rel="canonical" href="https://flowformhq.com/" />
 
-  <!-- Theme detection script (Zero FOUT) -->
+  <!-- Theme detection & Instant toggle (Zero FOUT) -->
   <script is:inline>
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      if (!window.__themeToggleInitialized) {
+        window.__themeToggleInitialized = true;
+        document.addEventListener('click', function (e) {
+          const btn = e.target.closest('.theme-toggle-btn');
+          if (!btn) return;
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+    })();
   </script>
 
   <!-- Icons -->

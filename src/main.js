@@ -1,13 +1,15 @@
 import './style.css'
 
-// Theme toggle (Dark / Light)
-const themeToggles = document.querySelectorAll('.theme-toggle-btn')
-themeToggles.forEach(btn => {
-  btn.addEventListener('click', () => {
+// Theme toggle fallback (Primary instant toggle is initialized inline in head)
+if (!window.__themeToggleInitialized) {
+  window.__themeToggleInitialized = true
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-toggle-btn')
+    if (!btn) return
     const isDark = document.documentElement.classList.toggle('dark')
     localStorage.setItem('theme', isDark ? 'dark' : 'light')
   })
-})
+}
 
 // Mobile navigation toggle
 const navToggle = document.querySelector('#nav-toggle')
