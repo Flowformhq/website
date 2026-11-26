@@ -160,4 +160,4 @@ You will receive an HTTP 200 response with a submission UUID.
 
 Self-hosting enterprise-grade form infrastructure does not require complex DevOps pipelines or expensive cloud services.
 
-With **FlowForm, Docker, and SQLite**, you can deploy a secure, sovereign form engine with unlimited submissions on any $5 VPS in less than 5 minutes.
+With **FlowForm, Docker, and SQLite**, you can deploy a self-hosted form engine with no software-imposed submission caps on a modest VPS in minutes.

@@ -44,7 +44,7 @@ Web3Forms only handles single-step HTML forms. If your product needs to branch q
 
 | Dimension | FlowForm (Mode 1 Headless) | Web3Forms |
 | :--- | :--- | :--- |
-| **Hosting Model** | Self-Hosted ($0) or Managed Cloud | Cloud Only (Proprietary) |
+| **Hosting Model** | Self-Hosted ($0) today; Cloud Free (250/mo) planned | Cloud Only (Proprietary) |
 | **License** | Open Source (AGPLv3) | Closed Source |
 | **Database Persistence** | **Yes** (SQLite, PostgreSQL, MySQL) | **No** (Email forwarder only) |
 | **Admin Inspection UI** | **Yes** (Filament 5 Admin Panel) | No admin panel for submissions |
@@ -93,4 +93,4 @@ Transitioning an existing HTML form from Web3Forms to FlowForm takes less than t
 
 If all you need is a quick throwaway form for a personal weekend hackathon, Web3Forms is an easy tool.
 
-However, for production applications, client projects, and startups that require **reliable database storage, searchable admin dashboards, GDPR compliance, and transparent pricing**, FlowForm Mode 1 gives you the speed of a headless endpoint with the power of a full-stack engine. It is available as **$0 self-hosted forever**, or managed Cloud starting at **just $1 pay-as-you-go** (5,000 credits that never expire, with Amazon SES email forwarding or zero-cost webhook relay).
+However, for production applications, client projects, and startups that require **database storage, searchable admin dashboards, GDPR control, and transparent pricing**, FlowForm gives you the speed of a headless endpoint with the depth of a full-stack workflow engine. You can self-host the AGPLv3 engine today for **$0 platform fee** (no software-imposed quotas on your server), while **FlowForm Cloud Free** (planned at 250 submissions/month) is on the hosted roadmap.

@@ -10,7 +10,7 @@ canonicalUrl: "https://flowformhq.com/blog/flowform-vs-formspree"
 
 ## What is the main difference between FlowForm and Formspree?
 
-FlowForm is an open-source, dual-licensed (AGPLv3) form backend you self-host on your own infrastructure for $0 platform fees with unlimited submissions. Formspree is a closed-source multi-tenant SaaS that charges recurring monthly subscriptions once your static site exceeds 50 submissions per month, retaining respondent data on their servers.
+FlowForm is an open-source, dual-licensed (AGPLv3) form backend you self-host on your own infrastructure for $0 platform fees with no software-imposed submission caps. Formspree is a closed-source multi-tenant SaaS that charges recurring monthly subscriptions once your static site exceeds 50 submissions per month, retaining respondent data on their servers.
 
 ---
 
@@ -24,9 +24,9 @@ Formspree charges users based on monthly submission volume tiers:
 
 For growing startups, SaaS marketing sites, and high-traffic blogs, submission volume is unpredictable. Sudden viral traffic, marketing product launches, or seasonal spikes frequently push websites past arbitrary SaaS thresholds, causing form submissions to be rejected or incurring surprise overage invoices.
 
-In contrast, **FlowForm** provides two developer-first hosting models:
-1. **Self-Hosted:** Runs directly as a Docker container on any $5/month VPS with SQLite or PostgreSQL — **$0 platform fee, unlimited forms, unlimited submissions forever**.
-2. **FlowForm Cloud:** Anti-subscription pay-as-you-go starting at **just $1** (5,000 credits). Submissions via Webhooks/Slack cost 1 credit (~5,000 responses for $1); Amazon SES email forwarding costs 5 credits (~1,000 responses for $1). **Credits never expire**, eliminating Formspree's $120/year minimum recurring trap.
+In contrast, **FlowForm** focuses on open-source self-hosting today while keeping hosted options roadmap-scoped:
+1. **Self-Hosted (Available Today):** Runs directly as a Docker container on your VPS with SQLite or PostgreSQL, with **$0 platform fee and no software-imposed form or submission quotas** (bounded only by your host hardware).
+2. **FlowForm Cloud Free (Planned):** Targeted at **250 submissions/month** for $0 once the hosted service launches (planned, not yet live).
 
 ---
 
@@ -35,7 +35,7 @@ In contrast, **FlowForm** provides two developer-first hosting models:
 | Feature | FlowForm (Mode 1 Headless) | Formspree |
 | :--- | :--- | :--- |
 | **License & Source Code** | Open Source (AGPLv3 + Commercial) | Closed Source (Proprietary SaaS) |
-| **Submission Volume Limits** | **Unlimited** (Server capacity) | 50 to 10,000 / month |
+| **Submission Volume Limits** | **No software cap** (Server capacity) | 50 to 20,000 / month |
 | **Data Storage** | SQLite / PostgreSQL on your VPS | Multi-tenant Formspree Cloud |
 | **GDPR & HIPAA Compliance** | **Zero third-party DPA required** | Third-party data processor required |
 | **Anti-Spam Defenses** | Built-in honeypot (`_gotcha`), Turnstile | Captcha, Akismet (Paid tiers) |

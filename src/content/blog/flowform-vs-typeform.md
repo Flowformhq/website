@@ -25,7 +25,7 @@ If a startup launches on Product Hunt or runs an advertising campaign that colle
 
 **FlowForm Mode 2 eliminates this artificial tax:**
 - **Platform Cost:** $0 forever under the AGPLv3 open-source license.
-- **Response Limit:** Unlimited (constrained only by your database disk space).
+- **Response Limit:** No software-imposed limit (constrained only by your database disk space).
 - **Conditional Branching:** Native to the engine with zero tier gating.
 - **Branding:** 100% white-labeled; you control every pixel of the frontend.
 
@@ -36,7 +36,7 @@ If a startup launches on Product Hunt or runs an advertising campaign that colle
 | Capability | FlowForm (Mode 2 Wizard) | Typeform |
 | :--- | :--- | :--- |
 | **Open Source** | **Yes (AGPLv3 + Commercial)** | No (Proprietary SaaS) |
-| **Response Limits** | **Unlimited** | 100 to 10,000 / month |
+| **Response Limits** | **No software cap (server capacity)** | 100 to 10,000 / month |
 | **Platform Cost** | **$0** (Self-Hosted) | $29 – $99+/month |
 | **Conditional Branching / Logic Jumps** | Included natively via JSON Schema | Paid tiers only |
 | **Frontend Embedding** | Drop-in React, Vue 3, Next.js, Livewire SDKs | Heavy `<iframe>` or popover widget |

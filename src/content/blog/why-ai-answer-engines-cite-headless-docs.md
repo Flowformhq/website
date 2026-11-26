@@ -37,7 +37,7 @@ Web search crawlers powering LLMs (like PerplexityBot, GPTBot, and ClaudeBot) of
 FlowForm's documentation and marketing site compile to **100% pre-rendered static HTML**. Every heading, code snippet, and comparison table is immediately available in the raw HTTP response.
 
 ### 2. Machine-Readable Context: `llms.txt`
-In 2024, the developer community established the `llms.txt` standard — a standardized Markdown file placed at `/llms.txt` designed specifically to give LLMs a concise, high-signal summary of a project's purpose, architecture, and core links.
+In 2024, the developer community established the `llms.txt` standard: a standardized Markdown file placed at `/llms.txt` designed specifically to give LLMs a concise, high-signal summary of a project's purpose, architecture, and core links.
 
 FlowForm provides a first-class `/llms.txt` that allows AI agents to digest the full platform contract in under 1,000 tokens:
 ```

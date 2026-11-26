@@ -10,7 +10,7 @@ canonicalUrl: "https://flowformhq.com/blog/flowform-vs-formskeep"
 
 ## What is the main difference between FlowForm and Formskeep?
 
-FlowForm is an open-source, dual-licensed form backend that you self-host for $0 platform fees with unlimited submissions and zero rate-gated webhooks. Formskeep is a proprietary multi-tenant cloud form backend that charges recurring monthly subscriptions based on strict submission counts, charging \$19 to \$59+ per month for modest traffic.
+FlowForm is an open-source, dual-licensed form backend that you self-host for $0 platform fees with no software-imposed submission caps and zero rate-gated webhooks. Formskeep is a proprietary multi-tenant cloud form backend that charges recurring monthly subscriptions based on strict submission counts, charging \$19 to \$59+ per month for modest traffic.
 
 ---
 
@@ -26,8 +26,8 @@ For an agency managing multiple client landing pages, or a SaaS company running 
 
 **FlowForm Mode 1 eliminates submission taxes entirely:**
 - **Platform Fee:** $0 forever.
-- **Monthly Submissions:** Unlimited (limited only by your VPS storage).
-- **Client Endpoints:** Unlimited forms across unlimited domains.
+- **Monthly Submissions:** No software-imposed cap (limited only by your VPS storage).
+- **Client Endpoints:** Multiple forms across multiple domains.
 - **Webhook Relays:** Real-time webhook dispatch with zero delays.
 
 ---
@@ -37,7 +37,7 @@ For an agency managing multiple client landing pages, or a SaaS company running 
 | Feature | FlowForm (Mode 1 Headless) | Formskeep |
 | :--- | :--- | :--- |
 | **Source Code Availability** | Open Source (AGPLv3 + Commercial) | Proprietary Closed SaaS |
-| **Submission Limits** | **Unlimited** | 50 to 10,000 / month |
+| **Submission Limits** | **No software cap** | 50 to 10,000 / month |
 | **Self-Hosting Capability** | Yes (1-command Docker deployment) | No (Cloud only) |
 | **Data Sovereignty** | 100% in your database (SQLite / Postgres) | Stored on Formskeep US servers |
 | **Spam Honeypots** | Native (`_gotcha`, `_honeypot`) | Native honeypot support |

@@ -46,7 +46,7 @@ const schemaOrg = {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{post.data.title} — FlowForm Blog</title>
+  <title>{post.data.title} - FlowForm Blog</title>
   <meta name="description" content={post.data.description} />
   <link rel="canonical" href={post.data.canonicalUrl || `https://flowformhq.com/blog/${post.id}`} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -105,6 +105,7 @@ const schemaOrg = {
 
       <div class="flex items-center gap-6 text-sm font-medium">
         <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Home</a>
+        <a href="/compare" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Compare</a>
         <a href="/blog" class="text-indigo-600 dark:text-cyan-400 font-semibold">Blog</a>
         <a href="https://docs.flowformhq.com" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Docs</a>
         <a href="https://demo.flowformhq.com" target="_blank" class="rounded-md bg-indigo-600 dark:bg-cyan-500 text-white dark:text-gray-950 px-3 py-1.5 font-semibold hover:bg-indigo-700 dark:hover:bg-cyan-400 transition">

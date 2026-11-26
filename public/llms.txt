@@ -1,19 +1,22 @@
 # FlowForm
 
-> The open-source, dual-licensed form and workflow engine for developers.
+> A form endpoint in 30 seconds. Grow into multi-step workflows without switching tools.
 
-FlowForm provides two primary operational modes:
-- **Mode 1 (Headless Form Endpoint):** Simple zero-JS HTML contact form backend for static sites (Astro, Next.js, Hugo, HTML). Drop-in alternative to Web3Forms and Formspree with built-in honeypot spam protection, instant email forwarding, and clean JSON payload storage. Endpoint: `POST https://demo.flowformhq.com/f/{slug}` or `POST https://demo.flowformhq.com/api/v1/f/{slug}`.
-- **Mode 2 (Dynamic Multi-Step Wizard Engine):** Schema-driven multi-step forms with conditional logic jumps, step sequencing, and server-side validation. Alternative to Typeform and Tally. Drop-in starter kits for React, Vue 3, Next.js, and Livewire.
+FlowForm is an open-source, dual-licensed (AGPLv3 core, MIT SDKs and starter kits) form endpoint and multi-step workflow engine:
+- **HTML Form Endpoints (`POST /f/{slug}` or `POST /api/v1/f/{slug}`):** Drop-in backend for HTML, Astro, Next.js, Hugo, and WordPress sites with built-in `_gotcha` honeypot protection, Allowed Domains validation, full-URL `_next` redirects, database persistence, and HMAC-SHA256 signed webhooks (`X-FlowForm-Signature-256`).
+- **Multi-Step Conditional Workflows:** Upgrade any endpoint to versioned JSON schemas (`GET /api/v1/forms/{uuid}/schema`), step persistence (`POST /api/v1/public/submissions`), and server-validated conditional branching without changing tools.
+- **AI Agents & APIs:** OpenAPI v1 spec, scoped Sanctum bearer tokens (`forms:read`, `submissions:read`, `webhooks:manage`), and Model Context Protocol (MCP) docs.
 
-## Documentation & Links
-- Marketing & Blog: https://flowformhq.com
-- Documentation: https://docs.flowformhq.com
-- Live Engine Demo & Admin Panel: https://demo.flowformhq.com (Admin: admin@flowformhq.com / flowform2026!)
+## Links
+- Website: https://flowformhq.com
+- Compare Alternatives: https://flowformhq.com/compare/
+  - FlowForm vs Formspree: https://flowformhq.com/vs/formspree/
+  - FlowForm vs Web3Forms: https://flowformhq.com/vs/web3forms/
+  - FlowForm vs OpnForm: https://flowformhq.com/vs/opnform/
+  - FlowForm vs Typeform: https://flowformhq.com/vs/typeform/
+  - FlowForm vs Tally: https://flowformhq.com/vs/tally/
+- Endpoint Quickstart Docs: https://docs.flowformhq.com/guide/endpoints/
+- AI Agents & MCP Docs: https://docs.flowformhq.com/guide/ai-agents
+- Live Engine Sandbox: https://demo.flowformhq.com
 - GitHub Repository: https://github.com/Flowformhq/flowform
-- Pricing: $0 Platform Fee (Self-Hosted AGPLv3) or Managed Cloud SaaS (trial@flowformhq.com)
-
-## Core Articles & Comparisons
-- FlowForm vs Formspree: https://flowformhq.com/blog/flowform-vs-formspree
-- FlowForm vs Web3Forms: https://flowformhq.com/blog/flowform-vs-web3forms
-- FlowForm vs Typeform: https://flowformhq.com/blog/flowform-vs-typeform
+- Pricing: OSS Self-Hosted ($0 platform fee under AGPLv3, no software-imposed quotas); Hosted FlowForm Cloud Free (PLANNED at 250 submissions/month, not yet live).
