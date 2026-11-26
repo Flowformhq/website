@@ -43,7 +43,7 @@ Let's examine the 3-year Total Cost of Ownership for a growing SaaS startup scal
 | **Year 1 (1,000 submissions/mo)** | $35/mo = **$420** | $0 platform fee + $0 (runs on existing VPS) |
 | **Year 2 (5,000 submissions/mo)** | $99/mo = **$1,188** | $0 platform fee + $0 (shared server resources) |
 | **Year 3 (20,000 submissions/mo)** | Enterprise tier ($250/mo) = **$3,000** | $0 platform fee + $5/mo dedicated VPS = **$60** |
-| **Team Administrator Seats (5 users)** | $10–$20/seat/mo = **$1,800** | **$0** (Unlimited seats via Filament 5) |
+| **Team Administrator Seats (5 users)** | $10–$20/seat/mo = **$1,800** | **$0** (No per-seat fee in Filament 5) |
 | **Custom Branding / White-Label** | Included only on high plans | **$0** (Native white-labeling) |
 | **Total 3-Year Expenditure** | **$6,408** | **$60** |
 
@@ -62,23 +62,11 @@ What does "$0 platform pricing" mean in practice?
 
 ---
 
-## When Does Managed Cloud Make Sense?
+## Planned Hosted Tier (Cloud Roadmap)
 
-While self-hosting is free and straightforward ($0 forever on your own infrastructure), some engineering teams and freelancers prefer offloading server maintenance, automated database backups, uptime SLAs, and IP deliverability.
+While self-hosting is free ($0 platform fee on your own infrastructure) and available today, some teams want managed infrastructure rather than operating queue workers and mail hosts themselves.
 
-For these teams, **FlowForm Cloud** introduces the **Anti-Subscription "Pay Only Where We Get Charged" Model**:
-
-### 1. Cloud Free Forever
-- **50 submissions / month** at $0. Ideal for hobby projects, initial launch prototypes, and personal portfolios.
-
-### 2. Pay-As-You-Go Credits Starting at $1 (USDT / USDC)
-Traditional form builders demand $10–$25 every month on auto-renew. If your site receives only 15 inquiries a month, you are paying $0.66–$1.66 per lead and forfeiting all unused monthly volume.
-
-FlowForm reverses this artificial scarcity:
-- **Zero-Cost Channels are Fractionally Metered:** Webhooks, Discord, Slack, and database-only submissions cost us virtually nothing. For $1 (5,000 credits), you receive up to **5,000 submissions** ($0.0002 per form).
-- **Email Forwarding at True Infrastructure Cost:** Amazon SES charges $0.10 per 1,000 emails. When FlowForm forwards a submission to your email, it consumes 5 credits—meaning $1 delivers **1,000 email-forwarded responses**.
-- **Credits Never Expire:** Buy once and let it run. Your credits never reset at the end of the month.
-- **Micro-Payments via Solana:** Thanks to Zoneless and Solana’s $0.0005 transaction fees, $1 micro-top-ups are completely viable without losing 33% to credit card interchange fees.
+**FlowForm Cloud Free** is **planned** at **250 submissions / month** for $0 when the hosted service launches. It is currently in planning and is not yet live or accepting paid billing.
 
 ---
 

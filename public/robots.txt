@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://flowformhq.com/sitemap.xml
+Sitemap: https://flowformhq.com/sitemap-index.xml

@@ -14,7 +14,7 @@ Tally is a closed-source, hosted freemium form builder featuring a Notion-style 
 
 ---
 
-## The Appeal of Tally — And Where Teams Hit the Ceiling
+## The Appeal of Tally, and Where Teams Hit the Ceiling
 
 Tally gained widespread popularity by offering a generous free tier and an intuitive slash-command editor (`/text`, `/dropdown`, `/file`). For solopreneurs and non-technical founders looking to spin up a quick feedback form or newsletter signup without writing code, Tally is one of the friendliest tools available.
 
@@ -26,11 +26,11 @@ Tally's codebase is completely proprietary. You cannot inspect how submissions a
 ### 2. $29/Month Paywall for Team Collaboration and Custom Domains
 While Tally's basic tier is free, crucial production features require upgrading to **Tally Pro ($29/month per workspace, or $290/year)**:
 - Custom domains without Tally branding.
-- Unlimited team members and collaborative workspaces.
+- Multi-member team collaboration and workspaces.
 - Partial response capture.
 - Custom CSS styling and code injection.
 
-With FlowForm, **every single feature is open-source under AGPLv3**. You get custom domains, unlimited team administrators (via Filament 5), custom Tailwind CSS styling, and unlimited submissions for **$0 platform license fees**.
+With FlowForm, **every core engine feature is open-source under AGPLv3**. You get custom domains on your own host, multi-user admin access (via Filament 5), custom Tailwind CSS styling, and no software-imposed submission caps for **$0 platform license fees**.
 
 ---
 
@@ -39,9 +39,9 @@ With FlowForm, **every single feature is open-source under AGPLv3**. You get cus
 | Dimension | FlowForm (Mode 2) | Tally |
 | :--- | :--- | :--- |
 | **Open Source** | **Yes (AGPLv3 + Commercial)** | No (Proprietary SaaS) |
-| **Hosting** | Self-Hosted or Managed Cloud | Tally Cloud Only |
-| **Custom Domains** | Unlimited ($0 platform cost) | Requires Pro ($29/month) |
-| **Team Member Seats** | Unlimited ($0 platform cost) | Requires Pro ($29/month) |
+| **Hosting** | Self-Hosted today; Cloud Free (250/mo) planned | Tally Cloud Only |
+| **Custom Domains** | Your own domain ($0 platform cost) | Requires Pro ($24 to $29/month) |
+| **Team Member Seats** | No software seat tax ($0 platform cost) | Requires Pro ($24 to $29/month) |
 | **Frontend Embedding** | Native React, Vue 3, Next.js, Livewire SDKs | `<iframe>` or popup widget |
 | **Conditional Logic** | Server-evaluated JSON Schema | Client-side visual rules |
 | **API Completeness** | 100% OpenAPI 3.1 & Model Context Protocol | REST API (Read-focused) |

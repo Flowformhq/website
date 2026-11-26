@@ -1,0 +1,80 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { AS_OF_DATE, COMPETITORS } from '../data/comparisons';
+
+const backends = COMPETITORS.filter((c) => c.family === 'Form Backend');
+const builders = COMPETITORS.filter((c) => c.family === 'Form Builder');
+---
+
+<SiteLayout
+  title="Compare FlowForm vs Formspree, Web3Forms, OpnForm, Typeform & Tally - FlowForm"
+  description="Factual comparison of FlowForm against Form Backends (Formspree, Web3Forms, OpnForm) and Form Builders (Typeform, Tally) with public pricing sources and verification dates."
+  canonical="https://flowformhq.com/compare/"
+  activeNav="compare"
+>
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-cyan-500/30 bg-indigo-50 dark:bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-cyan-300 mb-4">
+        Two Categories, One Engine &middot; Verified as of {AS_OF_DATE}
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        How FlowForm compares across Form Backends and Form Builders
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        Start with an HTML endpoint in 30 seconds, then grow into schema-driven multi-step workflows without switching tools. Every competitor claim below links to its public pricing page as of {AS_OF_DATE}.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Family 1: Form Backends</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {backends.map((item) => (
+          <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="font-semibold text-indigo-600 dark:text-cyan-400">{item.family}</span>
+                <span class="text-gray-500 dark:text-gray-400">as of {item.asOfDate}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">FlowForm vs {item.name}</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.summary}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-2 text-xs">
+              <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:underline">
+                Source: {item.sourceLabel}
+              </a>
+              <a href={`/vs/${item.slug}`} class="font-semibold text-indigo-600 dark:text-cyan-400 hover:underline">
+                Full comparison &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-14">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Family 2: Form Builders</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {builders.map((item) => (
+          <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="font-semibold text-indigo-600 dark:text-cyan-400">{item.family}</span>
+                <span class="text-gray-500 dark:text-gray-400">as of {item.asOfDate}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">FlowForm vs {item.name}</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.summary}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-2 text-xs">
+              <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:underline">
+                Source: {item.sourceLabel}
+              </a>
+              <a href={`/vs/${item.slug}`} class="font-semibold text-indigo-600 dark:text-cyan-400 hover:underline">
+                Full comparison &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

@@ -43,19 +43,19 @@
   </g>
 
   <!-- Main Headline -->
-  <text x="100" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="54" font-weight="800" fill="url(#textGrad)" letter-spacing="-0.035em">
-    The Open-Source
+  <text x="100" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="48" font-weight="800" fill="url(#textGrad)" letter-spacing="-0.03em">
+    A form endpoint in 30 seconds.
   </text>
-  <text x="100" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="54" font-weight="800" fill="url(#brandGrad)" letter-spacing="-0.035em">
-    Forms Platform
+  <text x="100" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="42" font-weight="800" fill="url(#brandGrad)" letter-spacing="-0.03em">
+    Grow into multi-step workflows.
   </text>
 
   <!-- Subtitle -->
-  <text x="100" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
-    Mode 1: Headless Form Endpoints (Web3Forms/Formspree alternative)
+  <text x="100" y="410" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+    Drop-in HTML endpoints (POST /f/{slug}) without switching tools
   </text>
-  <text x="100" y="450" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
-    Mode 2: Dynamic Multi-Step Wizards with Branching Logic (Typeform alternative)
+  <text x="100" y="445" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+    Conditional schemas, HMAC webhooks, OpenAPI v1, and MCP support
   </text>
 
   <!-- Footer Pills -->

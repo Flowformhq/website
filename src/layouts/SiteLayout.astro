@@ -1,0 +1,191 @@
+---
+import '../style.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  schemaOrg?: Record<string, unknown>;
+  activeNav?: 'home' | 'compare' | 'blog';
+}
+
+const {
+  title,
+  description,
+  canonical = 'https://flowformhq.com/',
+  ogType = 'website',
+  ogImage = 'https://flowformhq.com/og.png',
+  schemaOrg,
+  activeNav = 'home',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <script is:inline>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      if (!window.__themeToggleInitialized) {
+        window.__themeToggleInitialized = true;
+        document.addEventListener('click', function (e) {
+          const btn = e.target.closest('.theme-toggle-btn');
+          if (!btn) return;
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <link rel="alternate" type="application/rss+xml" title="FlowForm Engineering Blog" href="/rss.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800&family=Google+Sans+Text:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  {schemaOrg && <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />}
+</head>
+<body class="bg-white dark:bg-[#0B0F19] text-gray-900 dark:text-gray-100 antialiased selection:bg-indigo-100 dark:selection:bg-cyan-500/30 selection:text-indigo-900 dark:selection:text-cyan-200 transition-colors duration-200 flex flex-col min-h-screen">
+
+  <header class="border-b border-gray-100 dark:border-gray-800 bg-white/85 dark:bg-[#0B0F19]/85 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 shrink-0" aria-label="FlowForm Home">
+        <img src="/brand/flowform-logo-light.svg" alt="FlowForm" class="h-8 w-auto dark:hidden" />
+        <img src="/brand/flowform-logo-dark.svg" alt="FlowForm" class="h-8 w-auto hidden dark:block" />
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300" aria-label="Primary">
+        <a href="/#quickstart" class="hover:text-gray-900 dark:hover:text-white transition">Endpoints</a>
+        <a href="/#workflow" class="hover:text-gray-900 dark:hover:text-white transition">Multi-Step Workflows</a>
+        <a href="/compare" class={activeNav === 'compare' ? 'text-indigo-600 dark:text-cyan-400 font-semibold' : 'hover:text-gray-900 dark:hover:text-white transition'}>Compare</a>
+        <a href="/#pricing" class="hover:text-gray-900 dark:hover:text-white transition">Pricing</a>
+        <a href="/blog" class={activeNav === 'blog' ? 'text-indigo-600 dark:text-cyan-400 font-semibold' : 'hover:text-gray-900 dark:hover:text-white transition'}>Blog</a>
+        <a href="https://docs.flowformhq.com/guide/endpoints/" class="hover:text-gray-900 dark:hover:text-white transition">Docs</a>
+        <a href="https://docs.flowformhq.com/guide/ai-agents" class="hover:text-gray-900 dark:hover:text-white transition">AI Agents</a>
+        <a href="https://github.com/Flowformhq/flowform" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition flex items-center gap-1">
+          GitHub
+          <svg class="h-3.5 w-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3 text-sm font-medium">
+        <a href="https://demo.flowformhq.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center rounded-lg bg-indigo-600 dark:bg-cyan-500 text-white dark:text-gray-950 px-3.5 py-2 text-xs font-semibold hover:bg-indigo-700 dark:hover:bg-cyan-400 transition shadow-sm">
+          Live Sandbox
+        </a>
+        <button type="button" aria-label="Toggle dark mode"
+          class="theme-toggle-btn rounded-lg border border-gray-200 dark:border-gray-700 p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          <svg class="h-4 w-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="h-4 w-4 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+        <button id="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav"
+          class="md:hidden rounded-lg border border-gray-200 dark:border-gray-700 p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="hidden md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-[#0B0F19] px-6 py-4 space-y-3 text-sm font-medium">
+      <a href="/#quickstart" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Endpoints</a>
+      <a href="/#workflow" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Multi-Step Workflows</a>
+      <a href="/compare" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Compare</a>
+      <a href="/#pricing" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Pricing</a>
+      <a href="/blog" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Blog</a>
+      <a href="https://docs.flowformhq.com/guide/endpoints/" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">Endpoint Docs</a>
+      <a href="https://docs.flowformhq.com/guide/ai-agents" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">AI Agents Guide</a>
+      <a href="https://github.com/Flowformhq/flowform" target="_blank" rel="noopener noreferrer" class="block text-gray-700 dark:text-gray-200 hover:text-indigo-600">GitHub</a>
+      <a href="https://demo.flowformhq.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-lg bg-indigo-600 dark:bg-cyan-500 text-white dark:text-gray-950 px-3.5 py-2 text-xs font-semibold">Live Sandbox</a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <footer class="border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#080B12] py-14 text-sm text-gray-600 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="space-y-3">
+        <a href="/" class="inline-flex items-center gap-2">
+          <img src="/brand/flowform-logo-light.svg" alt="FlowForm" class="h-7 w-auto dark:hidden" />
+          <img src="/brand/flowform-logo-dark.svg" alt="FlowForm" class="h-7 w-auto hidden dark:block" />
+        </a>
+        <p class="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+          Open-source form endpoint and multi-step workflow engine. Dual-licensed under AGPLv3 and Commercial terms; SDKs and starter kits are MIT.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">Product &amp; Docs</h2>
+        <ul class="space-y-2 text-xs">
+          <li><a href="https://docs.flowformhq.com/guide/endpoints/" class="hover:text-indigo-600 dark:hover:text-cyan-400">Endpoint Quickstart</a></li>
+          <li><a href="https://docs.flowformhq.com/guide/ai-agents" class="hover:text-indigo-600 dark:hover:text-cyan-400">AI Coding Agents &amp; MCP</a></li>
+          <li><a href="https://docs.flowformhq.com" class="hover:text-indigo-600 dark:hover:text-cyan-400">Documentation Home</a></li>
+          <li><a href="https://demo.flowformhq.com" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-cyan-400">Live Engine Sandbox</a></li>
+          <li><a href="/#pricing" class="hover:text-indigo-600 dark:hover:text-cyan-400">Pricing (OSS &amp; Planned Cloud)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">Comparisons</h2>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/compare" class="hover:text-indigo-600 dark:hover:text-cyan-400">All Comparisons</a></li>
+          <li><a href="/vs/formspree" class="hover:text-indigo-600 dark:hover:text-cyan-400">FlowForm vs Formspree</a></li>
+          <li><a href="/vs/web3forms" class="hover:text-indigo-600 dark:hover:text-cyan-400">FlowForm vs Web3Forms</a></li>
+          <li><a href="/vs/opnform" class="hover:text-indigo-600 dark:hover:text-cyan-400">FlowForm vs OpnForm</a></li>
+          <li><a href="/vs/typeform" class="hover:text-indigo-600 dark:hover:text-cyan-400">FlowForm vs Typeform</a></li>
+          <li><a href="/vs/tally" class="hover:text-indigo-600 dark:hover:text-cyan-400">FlowForm vs Tally</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white mb-3">Developers &amp; Legal</h2>
+        <ul class="space-y-2 text-xs">
+          <li><a href="https://github.com/Flowformhq/flowform" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-cyan-400">GitHub Repository</a></li>
+          <li><a href="/blog" class="hover:text-indigo-600 dark:hover:text-cyan-400">Engineering Blog</a></li>
+          <li><a href="/llms.txt" class="hover:text-indigo-600 dark:hover:text-cyan-400">llms.txt</a></li>
+          <li><a href="/rss.xml" class="hover:text-indigo-600 dark:hover:text-cyan-400">RSS Feed</a></li>
+          <li><a href="https://github.com/Flowformhq/flowform/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-cyan-400">AGPLv3 + Commercial License</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-gray-200/70 dark:border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500 dark:text-gray-400">
+      <p>&copy; 2026 FlowFormHQ. Built for developer-owned form workflows.</p>
+      <p>flowformhq.com</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
